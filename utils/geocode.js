@@ -24,7 +24,7 @@ const geocode = (address,callback) => {
     });
   }
   module.exports=geocode;
-  geocode('12What',(e,d)=>{
-    console.log(e);
-    console.log(d);
-  })
+  // geocode('12What',(e,d)=>{
+  //   console.log(e);
+  //   console.log(d);
+  // })
