@@ -22,3 +22,9 @@ const forecast=(latitude,longitude,callback) => {
 }
 
 module.exports=forecast;
+
+
+// forecast(23.234,79.292,(error,data) =>{
+//     console.log(error);
+//     console.log(data);
+// })

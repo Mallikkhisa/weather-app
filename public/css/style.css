@@ -1,7 +1,48 @@
-h1{
-    color:grey;
+h1,h2{
+    color: grey;
 }
 img{
     width: 200px;
     height:200px;
 }
+.forecast-details{
+    margin-top: 20px;
+    display: none;
+}
+.nav a{
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 10px;
+    color: white;
+}
+.nav{
+    background-color: darkslateblue;
+    padding: 15px;
+}
+#location{
+    padding: 10px;
+}
+#btn{
+    padding: 5px;
+    background-color: darkslateblue;
+    color: white;
+    border: none;
+    
+}
+#btn:hover{
+    background-color: rgb(77, 32, 77);
+}
+.container{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10%;
+}
+.copyright{
+    margin-left: 30%;
+}
+
+.footer{
+    margin-top: 50%;
+}
+
+

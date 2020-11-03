@@ -1,5 +1,5 @@
 const request=require('request');
-
+  //'+address+'
 const geocode = (address,callback) => {
     const url='https://api.mapbox.com/geocoding/v5/mapbox.places/'+address+'.json?access_token=pk.eyJ1IjoibWFsbGlra2hpc2EiLCJhIjoiY2tndDBjemtyMHN2cjJxbWZzejNwNng1ZCJ9.UCyoe6X65Z-YsuxgO1JatQ&limit=1';
     request({url:url},(error,response)=>{
@@ -24,7 +24,7 @@ const geocode = (address,callback) => {
     });
   }
   module.exports=geocode;
-  // geocode('12What',(e,d)=>{
-  //   console.log(e);
-  //   console.log(d);
-  // })
+    // geocode('Delhi',(e,d)=>{
+    //   console.log(e);
+    //   console.log(d);
+    // });

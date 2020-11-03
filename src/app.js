@@ -8,7 +8,7 @@ const forecast=require('../utils/forecast');
 //console.log(path.join(__dirname,'../public'));
 //console.log(__filename)
 const app=express();
-const port = process.env.PORT ||3000 
+const port = process.env.PORT ||3000 ;
 //Define paths for Express config
 const publicDir=path.join(__dirname,'../public');
 
@@ -47,33 +47,24 @@ app.get('/products',(req,res) => {
 })
 app.get('/weather',(req,res) =>{
     if(!req.query.address){
-       return res.send({
-            error:'You must provide search term'
-        })
-    
-    }
-    
-     geocode(req.query.address,(error,geodata) => {
-          //console.log('Error',error);
-          //console.log('Data',data);
-          if(error){
-              return error
-          }
-        forecast(geodata.latitude,geodata.longitude,(error,data)=>{
+        res.send({error:'Address not provided'})
+    }else{
+        geocode(req.query.address,(error,data)=>{
             if(error){
-                return res.send({error});
+                return res.send({error:error});
             }
-           console.log(`${data.desc}. Temparature in ${geodata.placeName} is ${data.temperature} degree and feels like ${data.feelslike} degree out`);
-           res.send({
-            description:data.desc,
-            place:req.query.address,
-            temperature:data.temperature,
-            feelslike:data.feelslike
+            forecast(data.latitide,data.longitude,(e,forecastData)=>{
+                if(e){return res.send({error:e})}
+                res.send({
+                    temperature:forecastData.temperature,
+                    feelslike:forecastData.feelslike,
+                    desc:forecastData.desc,
+                    //forecastInfo:`It's ${desc}.Temperature in ${req.query.address} is ${temperature} degree and feelslike ${feelslike}`
+                })
+            })
         })
-        });
-      
-      });
-    })
+    }
+})
 
 /*-------------------------- */
 /*-------------------------- */
